@@ -7,7 +7,7 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'trustier'",
+            "name": "Debug executable 'trustier' (railsgoat)",
             "cargo": {
                 "args": [
                     "build",
@@ -25,7 +25,7 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'trustier'",
+            "name": "Debug unit tests in executable 'trustier' (railsgoat)",
             "cargo": {
                 "args": [
                     "test",
@@ -39,6 +39,43 @@
                 }
             },
             "args": ["./_TESTDATA_/railsgoat.cyclonedx.json"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'trustier' (juiceshop)",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=trustier",
+                    "--package=trustier"
+                ],
+                "filter": {
+                    "name": "trustier",
+                    "kind": "bin"
+                }
+            },
+            "args": ["./_TESTDATA_/juiceshop.cyclonedx.json"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'trustier' (juiceshop)",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=trustier",
+                    "--package=trustier"
+                ],
+                "filter": {
+                    "name": "trustier",
+                    "kind": "bin"
+                }
+            },
+            "args": ["./_TESTDATA_/juiceshop.cyclonedx.json"],
             "cwd": "${workspaceFolder}"
         }
     ]

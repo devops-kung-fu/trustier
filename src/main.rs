@@ -1,6 +1,7 @@
 pub mod models;
 use async_std::task;
 use clap::Parser;
+use colored::*;
 use cyclonedx_bom::prelude::*;
 use packageurl::PackageUrl;
 use std::{fs, str::FromStr};
@@ -35,12 +36,12 @@ fn main() {
     if validation_result.passed() {
         println!("* SBOM is valid")
     } else {
-        println!("* Provided file is not a valid SBOM");
+        println!("* Provided file {} is not a valid SBOM", &args.sbom);
         return;
     }
 
     if let Some(serial_number) = &bom.serial_number {
-        println!("* Serial Number: {}", serial_number);
+        println!("* SBOM Serial Number: {}", serial_number);
     }
 
     let rate_limit_ms = 100; // Rate limit in milliseconds
@@ -58,12 +59,13 @@ fn print_ascii_header() {
  / /_______ _____ / /_(_)__ ____
 / __/ __/ // (_-</ __/ / -_) __/
 \__/_/  \_,_/___/\__/_/\__/_/   
-
-©2024 DevOps Kung Fu Mafia
-https://github.com/devops-kung-fu/trustier
-
     "#;
-    println!("{}", header);
+    println!(
+        "{}\n{}\n{}\n",
+        header,
+        "DevOps Kung Fu Mafia".bold(),
+        "https://github.com/devops-kung-fu/trustier"
+    );
 }
 
 async fn process_sbom(
@@ -86,7 +88,9 @@ async fn process_sbom(
 
     if collected_purls.len() < original_count {
         println!(
+            "{}",
             r"* trustypkg.dev only supports the following ecosystems: pypi, npm, crates, maven, go"
+                .red()
         );
         println!(
             r"* Removed {} out of {} detected Purls in the SBOM",
