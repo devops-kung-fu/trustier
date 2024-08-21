@@ -14,15 +14,6 @@
                 "amazonQ.telemetry": false,
                 "[markdown]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode"
-                },
-                "[rust]": {
-                    "editor.defaultFormatter": "esbenp.prettier-vscode"
-                },
-                "[json]": {
-                    "editor.defaultFormatter": "esbenp.prettier-vscode"
-                },
-                "[yaml]": {
-                    "editor.defaultFormatter": "esbenp.prettier-vscode"
                 }
             },
             "extensions": [

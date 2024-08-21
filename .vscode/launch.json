@@ -7,38 +7,38 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'rust-codespace-template'",
+            "name": "Debug executable 'trustier'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=rust-codespace-template",
-                    "--package=rust-codespace-template"
+                    "--bin=trustier",
+                    "--package=trustier"
                 ],
                 "filter": {
-                    "name": "rust-codespace-template",
+                    "name": "trustier",
                     "kind": "bin"
                 }
             },
-            "args": [],
+            "args": ["./_TESTDATA_/railsgoat.cyclonedx.json"],
             "cwd": "${workspaceFolder}"
         },
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'rust-codespace-template'",
+            "name": "Debug unit tests in executable 'trustier'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=rust-codespace-template",
-                    "--package=rust-codespace-template"
+                    "--bin=trustier",
+                    "--package=trustier"
                 ],
                 "filter": {
-                    "name": "rust-codespace-template",
+                    "name": "trustier",
                     "kind": "bin"
                 }
             },
-            "args": [],
+            "args": ["./_TESTDATA_/railsgoat.cyclonedx.json"],
             "cwd": "${workspaceFolder}"
         }
     ]
