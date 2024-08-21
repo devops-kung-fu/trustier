@@ -8,6 +8,9 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 clap = { version = "4.5.0", features = ["derive"] }
 cyclonedx-bom = "0.7.0"
+surf = "2.3.2"
+async-std = "1.12.0"
+packageurl = "0.4.0"
 
 [dev-dependencies]
 anyhow = "1.0.79"
