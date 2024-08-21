@@ -2,7 +2,8 @@
     "name": "echor",
     "image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
     "features": {
-        "ghcr.io/devcontainers-contrib/features/starship:1": {}
+        "ghcr.io/devcontainers-contrib/features/starship:1": {},
+        "ghcr.io/dasiths/devcontainer-features/syft:1":{}
     },
     "customizations": {
         "vscode": {
