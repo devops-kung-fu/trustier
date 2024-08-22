@@ -109,7 +109,7 @@ async fn process_sbom(
     let bodies = fetch_purl_bodies(&collected_purls, rate_limit_ms).await?;
 
     for (i, body) in bodies.iter().enumerate() {
-        println!("PURL {}: {}", i, body);
+        println!("PURL {}\n: {}\n\n", i, body);
     }
 
     Ok(())

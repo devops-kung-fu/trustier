@@ -1,119 +1,107 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug executable 'trustier' (railsgoat)",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=trustier",
-                    "--package=trustier"
-                ],
-                "filter": {
-                    "name": "trustier",
-                    "kind": "bin"
-                }
-            },
-            "args": ["./_TESTDATA_/railsgoat.cyclonedx.json"],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'trustier' (railsgoat)",
-            "cargo": {
-                "args": [
-                    "test",
-                    "--no-run",
-                    "--bin=trustier",
-                    "--package=trustier"
-                ],
-                "filter": {
-                    "name": "trustier",
-                    "kind": "bin"
-                }
-            },
-            "args": ["./_TESTDATA_/railsgoat.cyclonedx.json"],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug executable 'trustier' (juiceshop)",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=trustier",
-                    "--package=trustier"
-                ],
-                "filter": {
-                    "name": "trustier",
-                    "kind": "bin"
-                }
-            },
-            "args": ["./_TESTDATA_/juiceshop.cyclonedx.json"],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'trustier' (juiceshop)",
-            "cargo": {
-                "args": [
-                    "test",
-                    "--no-run",
-                    "--bin=trustier",
-                    "--package=trustier"
-                ],
-                "filter": {
-                    "name": "trustier",
-                    "kind": "bin"
-                }
-            },
-            "args": ["./_TESTDATA_/juiceshop.cyclonedx.json"],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug executable 'trustier' (trustier)",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=trustier",
-                    "--package=trustier"
-                ],
-                "filter": {
-                    "name": "trustier",
-                    "kind": "bin"
-                }
-            },
-            "args": ["./_TESTDATA_/trustier.cyclonedx.json"],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'trustier' (trustier)",
-            "cargo": {
-                "args": [
-                    "test",
-                    "--no-run",
-                    "--bin=trustier",
-                    "--package=trustier"
-                ],
-                "filter": {
-                    "name": "trustier",
-                    "kind": "bin"
-                }
-            },
-            "args": ["./_TESTDATA_/trustier.cyclonedx.json"],
-            "cwd": "${workspaceFolder}"
-        }
-    ]
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'trustier' (railsgoat)",
+			"cargo": {
+				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": ["./test/_TESTDATA_/railsgoat.cyclonedx.json"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'trustier' (railsgoat)",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=trustier",
+					"--package=trustier"
+				],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": ["./test/_TESTDATA_/railsgoat.cyclonedx.json"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'trustier' (juiceshop)",
+			"cargo": {
+				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": ["./test/_TESTDATA_/juiceshop.cyclonedx.json"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'trustier' (juiceshop)",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=trustier",
+					"--package=trustier"
+				],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": ["./test/_TESTDATA_/juiceshop.cyclonedx.json"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'trustier' (trustier)",
+			"cargo": {
+				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": ["./test/_TESTDATA_/trustier.cyclonedx.json"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'trustier' (trustier)",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=trustier",
+					"--package=trustier"
+				],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": ["./test/_TESTDATA_/trustier.cyclonedx.json"],
+			"cwd": "${workspaceFolder}"
+		}
+	]
 }
