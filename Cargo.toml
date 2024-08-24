@@ -12,6 +12,7 @@ surf = "2.3.2"
 async-std = "1.12.0"
 packageurl = "0.4.0"
 colored = "2.1.0"
+clap-stdin = "0.5.1"
 
 [dev-dependencies]
 anyhow = "1.0.79"

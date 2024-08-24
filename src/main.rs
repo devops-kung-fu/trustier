@@ -2,6 +2,7 @@ pub mod models;
 
 use async_std::task;
 use clap::Parser;
+use clap_stdin::{FileOrStdin, MaybeStdin};
 use colored::*;
 use cyclonedx_bom::prelude::*;
 use packageurl::PackageUrl;
@@ -13,6 +14,7 @@ use surf;
 struct Args {
     //The SBOM to process
     #[arg(required = true)]
+    //sbom: FileOrStdin<String>,  //need to handle this scenario
     sbom: String,
 
     //The time to pause before requests to https://trustypkg.dev
@@ -21,7 +23,7 @@ struct Args {
 
     //Optional file name to write json output to
     #[arg(short, long)]
-    output_file: String
+    output_file: String,
 }
 
 fn main() {
