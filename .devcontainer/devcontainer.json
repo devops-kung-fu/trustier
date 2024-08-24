@@ -1,35 +1,70 @@
 {
-	"name": "trustier",
-	"image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
-	"features": {
-		"ghcr.io/devcontainers-contrib/features/starship:1": {},
+    "name": "echor",
+    "image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/starship:1": {},
 		"ghcr.io/dasiths/devcontainer-features/syft:1": {}
-	},
-	"customizations": {
-		"vscode": {
-			"settings": {
-				"window.menuBarVisibility": "classic",
-				"workbench.activityBar.location": "top",
-				"debug.toolBarLocation": "docked",
-				"editor.formatOnSave": true,
-				"amazonQ.telemetry": false //,
-
-				// "editor.defaultFormatter": "esbenp.prettier-vscode",
-				// "[javascript]": {
-				// 	"editor.defaultFormatter": "esbenp.prettier-vscode"
-				// },
-				// "prettier.useTabs": true
-			}
-		},
-		"extensions": [
-			"github.vscode-pull-request-github",
-			"github.vscode-github-actions",
-			"oderwat.indent-rainbow",
-			"quicktype.quicktype",
-			"ahebrank.yaml2json",
-			"amazonwebservices.amazon-q-vscode",
-			"Gruntfuggly.todo-tree" //,
-			//	"esbenp.prettier-vscode"
-		]
-	}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "window.menuBarVisibility": "classic",
+                "workbench.activityBar.location": "top",
+                "debug.toolBarLocation": "docked",
+                "editor.formatOnSave": true,
+                "amazonQ.telemetry": false,
+                "[markdown]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "prettier.useTabs": true,
+                "git.autofetch": true
+            },
+            "extensions": [
+                "github.vscode-pull-request-github",
+                "github.vscode-github-actions",
+                "oderwat.indent-rainbow",
+                "quicktype.quicktype",
+                "ahebrank.yaml2json",
+                "amazonwebservices.amazon-q-vscode",
+                "Gruntfuggly.todo-tree",
+                "esbenp.prettier-vscode",
+                "BarbossHack.crates-io"
+            ]
+        }
+    }
 }
+
+// {
+// 	"name": "trustier",
+// 	"image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
+// 	"features": {
+// 		"ghcr.io/devcontainers-contrib/features/starship:1": {},
+// 		"ghcr.io/dasiths/devcontainer-features/syft:1": {}
+// 	},
+// 	"customizations": {
+// 		"vscode": {
+// 			"settings": {
+// 				"window.menuBarVisibility": "classic",
+// 				"workbench.activityBar.location": "top",
+// 				"debug.toolBarLocation": "docked",
+// 				"editor.formatOnSave": true,
+// 				"amazonQ.telemetry": false,
+// 				"editor.defaultFormatter": "esbenp.prettier-vscode",
+// 				"[javascript]": {
+// 					"editor.defaultFormatter": "esbenp.prettier-vscode"
+// 				},
+// 				"prettier.useTabs": true
+// 			}
+// 		},
+// 		"extensions": [
+// 			"github.vscode-pull-request-github",
+// 			"github.vscode-github-actions",
+// 			"oderwat.indent-rainbow",
+// 			"quicktype.quicktype",
+// 			"ahebrank.yaml2json",
+// 			"amazonwebservices.amazon-q-vscode",
+// 			"Gruntfuggly.todo-tree",
+// 			"esbenp.prettier-vscode"
+// 		]
+// 	}
+// }

@@ -11,8 +11,17 @@ use surf;
 #[derive(Debug, Parser)]
 #[command(author, version, about)]
 struct Args {
+    //The SBOM to process
     #[arg(required = true)]
     sbom: String,
+
+    //The time to pause before requests to https://trustypkg.dev
+    #[arg(short, long, default_value_t = 500)]
+    ratelimit: u64,
+
+    //Optional file name to write json output to
+    #[arg(short, long)]
+    output_file: String
 }
 
 fn main() {
@@ -48,8 +57,7 @@ fn main() {
         println!("* SBOM Serial Number: {}", serial_number);
     }
 
-    let rate_limit_ms = 100;
-    if let Err(err) = task::block_on(process_sbom(&bom, rate_limit_ms)) {
+    if let Err(err) = task::block_on(process_sbom(&bom, args.ratelimit)) {
         eprintln!("Error in process_sbom: {}", err);
     }
     println!("{}", "DONE!".green().bold());
