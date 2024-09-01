@@ -13,7 +13,7 @@
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct TrustyResponse {
     id: String,
 
@@ -91,7 +91,7 @@ pub struct TrustyResponse {
     malicious: Option<serde_json::Value>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Owner {
     id: String,
 
@@ -132,5 +132,5 @@ pub struct Owner {
     scores: Scores,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Scores {}

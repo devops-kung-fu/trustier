@@ -5,6 +5,7 @@ use clap::Parser;
 use clap_stdin::{FileOrStdin, MaybeStdin};
 use colored::*;
 use cyclonedx_bom::prelude::*;
+use models::TrustyResponse;
 use packageurl::PackageUrl;
 use std::{fs, str::FromStr};
 use surf;
@@ -144,6 +145,9 @@ async fn fetch_purl_bodies(
 
                 let body = surf::get(url).await?.body_string().await?;
                 bodies.push(body);
+
+                let resp: TrustyResponse = serde_json::from_str(&body)?;
+                println!("Success: {:?}", resp);
 
                 task::sleep(std::time::Duration::from_millis(rate_limit_ms)).await;
             }

@@ -12,7 +12,6 @@
                 "workbench.activityBar.location": "top",
                 "debug.toolBarLocation": "docked",
                 "editor.formatOnSave": true,
-                "amazonQ.telemetry": false,
                 "[markdown]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode"
                 },
@@ -25,7 +24,7 @@
                 "oderwat.indent-rainbow",
                 "quicktype.quicktype",
                 "ahebrank.yaml2json",
-                "amazonwebservices.amazon-q-vscode",
+                "GitHub.copilot",
                 "Gruntfuggly.todo-tree",
                 "esbenp.prettier-vscode",
                 "BarbossHack.crates-io"
