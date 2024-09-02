@@ -23,8 +23,8 @@ struct Args {
     ratelimit: u64,
 
     //Optional file name to write json output to
-    #[arg(short, long)]
-    output_file: String,
+    #[arg(short, long, required = false)]
+    output_file: Option<String>,
 }
 
 fn main() {
@@ -61,8 +61,17 @@ fn main() {
     }
 
     if let Err(err) = task::block_on(process_sbom(&bom, args.ratelimit)) {
-        eprintln!("Error in process_sbom: {}", err);
+        eprintln!("Error processing SBOM (process_sbom): {}", err);
     }
+
+    if let Some(output_file) = args.output_file {
+        // Handle the case where output_file is provided
+        println!("Output file specified: {}", output_file);
+    } else {
+        // Handle the case where output_file is not provided
+        println!("No output file specified.");
+    }
+
     println!("{}", "DONE!".green().bold());
 }
 
@@ -144,7 +153,7 @@ async fn fetch_purl_bodies(
                 println!("* Fetching trust information for {}:", p);
 
                 let body = surf::get(url).await?.body_string().await?;
-                bodies.push(body);
+                bodies.push(body.clone());
 
                 let resp: TrustyResponse = serde_json::from_str(&body)?;
                 println!("Success: {:?}", resp);
@@ -161,9 +170,8 @@ async fn fetch_purl_bodies(
 fn filter_purls(collected_purls: &mut Vec<String>) {
     let allowed_types = ["pypi", "npm", "crates", "maven", "go"];
 
-    collected_purls.retain(|purl_str| {
-        PackageUrl::from_str(purl_str)
-            .map(|purl| allowed_types.contains(&purl.ty()))
-            .unwrap_or(false)
+    collected_purls.retain(|purl_str| match PackageUrl::from_str(purl_str) {
+        Ok(purl) => allowed_types.contains(&purl.ty()),
+        Err(_) => false,
     });
 }
