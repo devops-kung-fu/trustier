@@ -4,110 +4,110 @@
 // extern crate serde_derive;
 // extern crate serde_json;
 //
-// use generated_module::TrustyResponse;
+// use models::TrustyResponse;
 //
 // fn main() {
 //     let json = r#"{"answer": 42}"#;
 //     let model: TrustyResponse = serde_json::from_str(&json).unwrap();
 // }
 
-use serde::{Deserialize, Serialize};
+use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct TrustyResponse {
-    id: String,
+    id: Option<String>,
 
-    status: String,
+    status: Option<String>,
 
     status_code: Option<serde_json::Value>,
 
-    name: String,
+    name: Option<String>,
 
     #[serde(rename = "type")]
-    trusty_response_type: String,
+    ty: Option<String>,
 
-    version: String,
+    version: Option<String>,
 
-    version_date: String,
+    version_date: Option<String>,
 
-    author: String,
+    author: Option<String>,
 
-    author_email: String,
+    author_email: Option<String>,
 
-    package_description: String,
+    package_description: Option<String>,
 
-    repo_description: String,
+    repo_description: Option<String>,
 
-    origin: String,
+    origin: Option<String>,
 
-    stargazers_count: i64,
+    stargazers_count: Option<i64>,
 
-    watchers_count: i64,
+    watchers_count: Option<i64>,
 
-    home_page: String,
+    home_page: Option<String>,
 
-    has_issues: bool,
+    has_issues: Option<bool>,
 
-    has_projects: bool,
+    has_projects: Option<bool>,
 
-    has_downloads: bool,
+    has_downloads: Option<serde_json::Value>,
 
-    forks_count: i64,
+    forks_count: Option<i64>,
 
-    archived: bool,
+    archived: Option<bool>,
 
-    is_deprecated: bool,
+    is_deprecated: Option<bool>,
 
-    disabled: bool,
+    disabled: Option<bool>,
 
-    open_issues_count: i64,
+    open_issues_count: Option<i64>,
 
-    visibility: String,
+    visibility: Option<String>,
 
-    default_branch: String,
+    default_branch: Option<String>,
 
-    repository_id: String,
+    repository_id: Option<String>,
 
-    repository_name: String,
+    repository_name: Option<String>,
 
-    contributor_count: i64,
+    contributor_count: Option<i64>,
 
-    public_repos: i64,
+    public_repos: Option<i64>,
 
-    public_gists: i64,
+    public_gists: Option<i64>,
 
-    followers: i64,
+    followers: Option<i64>,
 
-    following: i64,
+    following: Option<i64>,
 
-    owner: Owner,
+    owner: Option<Owner>,
 
-    contributors: Vec<Owner>,
+    contributors: Option<Vec<Owner>>,
 
-    last_update: String,
+    last_update: Option<String>,
 
-    scores: Scores,
+    scores: Option<Scores>,
 
     malicious: Option<serde_json::Value>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Owner {
-    id: String,
+    id: Option<String>,
 
-    author: String,
+    author: Option<String>,
 
-    author_email: String,
+    author_email: Option<String>,
 
-    login: String,
+    login: Option<String>,
 
-    avatar_url: String,
+    avatar_url: Option<String>,
 
-    gravatar_id: String,
+    gravatar_id: Option<String>,
 
-    url: String,
+    url: Option<String>,
 
-    html_url: String,
+    html_url: Option<String>,
 
     company: Option<String>,
 
@@ -115,22 +115,24 @@ pub struct Owner {
 
     location: Option<String>,
 
-    email: String,
+    email: Option<String>,
 
-    hireable: bool,
+    hireable: Option<bool>,
 
-    twitter_username: Option<serde_json::Value>,
+    twitter_username: Option<String>,
 
-    public_repos: i64,
+    public_repos: Option<i64>,
 
     public_gists: Option<serde_json::Value>,
 
-    followers: i64,
+    followers: Option<i64>,
 
-    following: i64,
+    following: Option<i64>,
 
-    scores: Scores,
+    scores: Option<Scores>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Scores {}
+pub struct Scores {
+    // Add fields here if needed, all wrapped in Option<T>
+}

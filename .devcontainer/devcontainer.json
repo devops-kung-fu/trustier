@@ -12,6 +12,7 @@
                 "workbench.activityBar.location": "top",
                 "debug.toolBarLocation": "docked",
                 "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
                 "[markdown]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode"
                 },
@@ -19,12 +20,12 @@
                 "git.autofetch": true
             },
             "extensions": [
+                "GitHub.copilot",
                 "github.vscode-pull-request-github",
                 "github.vscode-github-actions",
                 "oderwat.indent-rainbow",
                 "quicktype.quicktype",
                 "ahebrank.yaml2json",
-                "GitHub.copilot",
                 "Gruntfuggly.todo-tree",
                 "esbenp.prettier-vscode",
                 "BarbossHack.crates-io"

@@ -2,13 +2,14 @@ pub mod models;
 
 use async_std::task;
 use clap::Parser;
-use clap_stdin::{FileOrStdin, MaybeStdin};
+// use clap_stdin::{FileOrStdin, MaybeStdin};
 use colored::*;
 use cyclonedx_bom::prelude::*;
 use models::TrustyResponse;
 use packageurl::PackageUrl;
 use std::{fs, str::FromStr};
 use surf;
+use serde_json;
 
 #[derive(Debug, Parser)]
 #[command(author, version, about)]
@@ -59,18 +60,9 @@ fn main() {
     if let Some(serial_number) = &bom.serial_number {
         println!("* SBOM Serial Number: {}", serial_number);
     }
-
-    if let Err(err) = task::block_on(process_sbom(&bom, args.ratelimit)) {
+    if let Err(err) = task::block_on(process_sbom(&bom, args.output_file, args.ratelimit)) {
         eprintln!("Error processing SBOM (process_sbom): {}", err);
-    }
-
-    if let Some(output_file) = args.output_file {
-        // Handle the case where output_file is provided
-        println!("Output file specified: {}", output_file);
-    } else {
-        // Handle the case where output_file is not provided
-        println!("No output file specified.");
-    }
+    } 
 
     println!("{}", "DONE!".green().bold());
 }
@@ -92,6 +84,7 @@ fn print_ascii_header() {
 
 async fn process_sbom(
     bom: &Bom,
+    output_file: Option<String>,
     rate_limit_ms: u64,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
     let mut collected_purls = if let Some(components) = &bom.components {
@@ -126,10 +119,22 @@ async fn process_sbom(
         println!("* Nothing to do...\n")
     }
 
-    let bodies = fetch_purl_bodies(&collected_purls, rate_limit_ms).await?;
+    let responses = fetch_purl_bodies(&collected_purls, rate_limit_ms).await?;
 
-    for (i, body) in bodies.iter().enumerate() {
-        println!("PURL {}\n: {}\n\n", i, body);
+    if let Some(of) = output_file.clone() {
+        let json = serde_json::to_string_pretty(&responses).unwrap();
+        let of_clone = of.clone();
+        let output_path = std::path::Path::new(&of_clone);
+        if let Some(parent_dir) = output_path.parent() {
+            if !parent_dir.exists() {
+                fs::create_dir_all(parent_dir).expect("Failed to create output directory");
+            }
+        }
+        fs::write(of_clone, json).expect("Failed to write JSON to file");
+        println!("* JSON written to file: {}", of);
+    } else {
+        let json = serde_json::to_string_pretty(&responses).unwrap();
+        println!("{}", json);
     }
 
     Ok(())
@@ -138,8 +143,8 @@ async fn process_sbom(
 async fn fetch_purl_bodies(
     purls: &[String],
     rate_limit_ms: u64,
-) -> Result<Vec<String>, Box<dyn std::error::Error + Send + Sync + 'static>> {
-    let mut bodies = Vec::new();
+) -> Result<Vec<TrustyResponse>, Box<dyn std::error::Error + Send + Sync + 'static>> {
+    let mut responses: Vec<TrustyResponse> = Vec::new();
 
     for p in purls {
         match PackageUrl::from_str(p) {
@@ -153,10 +158,19 @@ async fn fetch_purl_bodies(
                 println!("* Fetching trust information for {}:", p);
 
                 let body = surf::get(url).await?.body_string().await?;
-                bodies.push(body.clone());
-
-                let resp: TrustyResponse = serde_json::from_str(&body)?;
-                println!("Success: {:?}", resp);
+            
+                // eprintln!("* Response: {}", body);
+                
+                match serde_json::from_str::<TrustyResponse>(&body) {
+                    Ok(resp) => {
+                        //println!("Success: {:?}", resp);
+                        responses.push(resp);
+                    },
+                    Err(e) => {
+                        eprintln!("Failed to parse JSON: {}", e);
+                    },
+                }
+                
 
                 task::sleep(std::time::Duration::from_millis(rate_limit_ms)).await;
             }
@@ -164,14 +178,21 @@ async fn fetch_purl_bodies(
         }
     }
 
-    Ok(bodies)
+    Ok(responses)
 }
 
 fn filter_purls(collected_purls: &mut Vec<String>) {
-    let allowed_types = ["pypi", "npm", "crates", "maven", "go"];
+    let allowed_types = ["pypi", "npm", "cargo", "maven", "go"];
 
     collected_purls.retain(|purl_str| match PackageUrl::from_str(purl_str) {
         Ok(purl) => allowed_types.contains(&purl.ty()),
         Err(_) => false,
     });
+
+    //if any of the collected purls contain the word cargo, replace it with crates (trustypkg.dev only supports crates, sboms contain cargo)
+    for purl in collected_purls.iter_mut() {
+        if purl.contains("cargo") {
+            *purl = purl.replace("cargo", "crates");
+        }
+    }
 }
