@@ -9,13 +9,19 @@
 			"request": "launch",
 			"name": "Debug executable 'trustier' (railsgoat)",
 			"cargo": {
-				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"build",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
 				}
 			},
-			"args": ["./test/_TESTDATA_/railsgoat.cyclonedx.json"],
+			"args": [
+				"./test/_TESTDATA_/railsgoat.cyclonedx.json"
+			],
 			"cwd": "${workspaceFolder}"
 		},
 		{
@@ -23,13 +29,20 @@
 			"request": "launch",
 			"name": "Debug unit tests in executable 'trustier' (railsgoat)",
 			"cargo": {
-				"args": ["test", "--no-run", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
 				}
 			},
-			"args": ["./test/_TESTDATA_/railsgoat.cyclonedx.json"],
+			"args": [
+				"./test/_TESTDATA_/railsgoat.cyclonedx.json"
+			],
 			"cwd": "${workspaceFolder}"
 		},
 		{
@@ -37,13 +50,19 @@
 			"request": "launch",
 			"name": "Debug executable 'trustier' (juiceshop)",
 			"cargo": {
-				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"build",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
 				}
 			},
-			"args": ["./test/_TESTDATA_/juiceshop.cyclonedx.json"],
+			"args": [
+				"./test/_TESTDATA_/juiceshop.cyclonedx.json"
+			],
 			"cwd": "${workspaceFolder}"
 		},
 		{
@@ -51,7 +70,11 @@
 			"request": "launch",
 			"name": "Debug executable 'trustier' (juiceshop), output to file",
 			"cargo": {
-				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"build",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
@@ -68,13 +91,20 @@
 			"request": "launch",
 			"name": "Debug unit tests in executable 'trustier' (juiceshop)",
 			"cargo": {
-				"args": ["test", "--no-run", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
 				}
 			},
-			"args": ["./test/_TESTDATA_/juiceshop.cyclonedx.json"],
+			"args": [
+				"./test/_TESTDATA_/juiceshop.cyclonedx.json"
+			],
 			"cwd": "${workspaceFolder}"
 		},
 		{
@@ -82,13 +112,19 @@
 			"request": "launch",
 			"name": "Debug executable 'trustier' (trustier)",
 			"cargo": {
-				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"build",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
 				}
 			},
-			"args": ["./test/_TESTDATA_/trustier.cyclonedx.json"],
+			"args": [
+				"./test/_TESTDATA_/trustier.cyclonedx.json"
+			],
 			"cwd": "${workspaceFolder}"
 		},
 		{
@@ -96,7 +132,11 @@
 			"request": "launch",
 			"name": "Debug executable 'trustier' (trustier), output to file",
 			"cargo": {
-				"args": ["build", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"build",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
@@ -113,13 +153,20 @@
 			"request": "launch",
 			"name": "Debug unit tests in executable 'trustier' (trustier)",
 			"cargo": {
-				"args": ["test", "--no-run", "--bin=trustier", "--package=trustier"],
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=trustier",
+					"--package=trustier"
+				],
 				"filter": {
 					"name": "trustier",
 					"kind": "bin"
 				}
 			},
-			"args": ["./test/_TESTDATA_/trustier.cyclonedx.json"],
+			"args": [
+				"./test/_TESTDATA_/trustier.cyclonedx.json"
+			],
 			"cwd": "${workspaceFolder}"
 		}
 	]

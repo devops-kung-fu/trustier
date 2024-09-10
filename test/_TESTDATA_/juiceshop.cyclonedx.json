@@ -9917,7 +9917,7 @@
 				"version": "2.2.0",
 				"bom-ref": "character-parser@2.2.0",
 				"author": "ForbesLindesay",
-				"description": "Parse JavaScript one character at a time to look for snippets in Templates.  This is not a validator, it's just designed to allow you to have sections of JavaScript delimited by brackets robustly.",
+				"description": "Parse JavaScript one character at a time to look for snippets in Templates.	This is not a validator, it's just designed to allow you to have sections of JavaScript delimited by brackets robustly.",
 				"hashes": [
 					{
 						"alg": "SHA-512",
@@ -12528,7 +12528,7 @@
 				"version": "1.1.0",
 				"bom-ref": "console-control-strings@1.1.0",
 				"author": "Rebecca Turner",
-				"description": "A library of cross-platform tested terminal/console command strings for doing things like color and cursor positioning.  This is a subset of both ansi and vt100.  All control codes included work on both Windows & Unix-like OSes, except where noted.",
+				"description": "A library of cross-platform tested terminal/console command strings for doing things like color and cursor positioning.	This is a subset of both ansi and vt100.	All control codes included work on both Windows & Unix-like OSes, except where noted.",
 				"hashes": [
 					{
 						"alg": "SHA-512",
@@ -15732,7 +15732,7 @@
 				"version": "0.3.0",
 				"bom-ref": "dynamic-dedupe@0.3.0",
 				"author": "Thorsten Lorenz",
-				"description": "Dedupes node modules as they are being required  which works even when dependencies are linked via ln -s or npm link.",
+				"description": "Dedupes node modules as they are being required	which works even when dependencies are linked via ln -s or npm link.",
 				"hashes": [
 					{
 						"alg": "SHA-512",
@@ -18972,7 +18972,7 @@
 				"version": "2.0.6",
 				"bom-ref": "fast-levenshtein@2.0.6",
 				"author": "Ramesh Nair",
-				"description": "Efficient implementation of Levenshtein algorithm  with locale-specific collator support.",
+				"description": "Efficient implementation of Levenshtein algorithm	with locale-specific collator support.",
 				"hashes": [
 					{
 						"alg": "SHA-512",
@@ -40471,7 +40471,7 @@
 				"version": "3.0.2",
 				"bom-ref": "pug-code-gen@3.0.2",
 				"author": "Forbes Lindesay",
-				"description": "Default code-generator for pug.  It generates HTML via a JavaScript template function.",
+				"description": "Default code-generator for pug.	It generates HTML via a JavaScript template function.",
 				"hashes": [
 					{
 						"alg": "SHA-512",

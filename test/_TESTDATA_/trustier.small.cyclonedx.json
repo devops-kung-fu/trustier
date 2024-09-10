@@ -1,0 +1,114 @@
+{
+	"$schema": "http://cyclonedx.org/schema/bom-1.4.schema.json",
+	"bomFormat": "CycloneDX",
+	"specVersion": "1.4",
+	"serialNumber": "urn:uuid:e3528bf6-0024-4fbd-9223-f4760bbf54ab",
+	"version": 1,
+	"metadata": {
+	"timestamp": "2024-09-02T17:26:27Z",
+	"tools": [{ "vendor": "anchore", "name": "syft", "version": "1.11.1" }],
+	"component": { "bom-ref": "af63bd4c8601b7f1", "type": "file", "name": "." }
+	},
+	"components": [
+	{
+		"bom-ref": "pkg:github/actions/checkout@v4?package-id=217f4cdc0ac4dc24",
+		"type": "library",
+		"name": "actions/checkout",
+		"version": "v4",
+		"cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
+		"purl": "pkg:github/actions/checkout@v4",
+		"properties": [
+		{
+			"name": "syft:package:foundBy",
+			"value": "github-actions-usage-cataloger"
+		},
+		{ "name": "syft:package:type", "value": "github-action" },
+		{
+			"name": "syft:location:0:path",
+			"value": "/.github/workflows/rust.yml"
+		}
+		]
+	},
+	{
+		"bom-ref": "pkg:cargo/aead@0.3.2?package-id=797b9b64a142d76c",
+		"type": "library",
+		"name": "aead",
+		"version": "0.3.2",
+		"cpe": "cpe:2.3:a:aead:aead:0.3.2:*:*:*:*:*:*:*",
+		"purl": "pkg:cargo/aead@0.3.2",
+		"externalReferences": [
+		{
+			"url": "registry+https://github.com/rust-lang/crates.io-index",
+			"type": "distribution"
+		}
+		],
+		"properties": [
+		{
+			"name": "syft:package:foundBy",
+			"value": "rust-cargo-lock-cataloger"
+		},
+		{ "name": "syft:package:language", "value": "rust" },
+		{ "name": "syft:package:type", "value": "rust-crate" },
+		{
+			"name": "syft:package:metadataType",
+			"value": "rust-cargo-lock-entry"
+		},
+		{ "name": "syft:location:0:path", "value": "/Cargo.lock" }
+		]
+	},
+	{
+		"bom-ref": "pkg:cargo/aes@0.6.0?package-id=15ef11e1e4c65f15",
+		"type": "library",
+		"name": "aes",
+		"version": "0.6.0",
+		"cpe": "cpe:2.3:a:aes:aes:0.6.0:*:*:*:*:*:*:*",
+		"purl": "pkg:cargo/aes@0.6.0",
+		"externalReferences": [
+		{
+			"url": "registry+https://github.com/rust-lang/crates.io-index",
+			"type": "distribution"
+		}
+		],
+		"properties": [
+		{
+			"name": "syft:package:foundBy",
+			"value": "rust-cargo-lock-cataloger"
+		},
+		{ "name": "syft:package:language", "value": "rust" },
+		{ "name": "syft:package:type", "value": "rust-crate" },
+		{
+			"name": "syft:package:metadataType",
+			"value": "rust-cargo-lock-entry"
+		},
+		{ "name": "syft:location:0:path", "value": "/Cargo.lock" }
+		]
+	},
+	{
+		"bom-ref": "pkg:cargo/aes-gcm@0.8.0?package-id=5396c925e2835637",
+		"type": "library",
+		"name": "aes-gcm",
+		"version": "0.8.0",
+		"cpe": "cpe:2.3:a:aes-gcm:aes-gcm:0.8.0:*:*:*:*:*:*:*",
+		"purl": "pkg:cargo/aes-gcm@0.8.0",
+		"externalReferences": [
+		{
+			"url": "registry+https://github.com/rust-lang/crates.io-index",
+			"type": "distribution"
+		}
+		],
+		"properties": [
+		{
+			"name": "syft:package:foundBy",
+			"value": "rust-cargo-lock-cataloger"
+		},
+		{ "name": "syft:package:language", "value": "rust" },
+		{ "name": "syft:package:type", "value": "rust-crate" },
+		{
+			"name": "syft:package:metadataType",
+			"value": "rust-cargo-lock-entry"
+		},
+		{ "name": "syft:location:0:path", "value": "/Cargo.lock" }
+		]
+	}
+	]
+}

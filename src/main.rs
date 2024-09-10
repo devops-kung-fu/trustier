@@ -82,6 +82,7 @@ fn print_ascii_header() {
     );
 }
 
+
 async fn process_sbom(
     bom: &Bom,
     output_file: Option<String>,

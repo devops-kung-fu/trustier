@@ -21,19 +21,19 @@ Reputation is also a crucial factor in assessing the trustworthiness of a compon
 
 To mitigate the risks of supply chain attacks and ensure the trustworthiness of components, organizations should adopt a comprehensive software supply chain security strategy. This strategy may include:
 
-* Regularly updating and auditing third-party components for vulnerabilities and potential threats.
+- Regularly updating and auditing third-party components for vulnerabilities and potential threats.
 
-* Monitoring development environments and ensuring secure software development practices are followed by all components used.
+- Monitoring development environments and ensuring secure software development practices are followed by all components used.
 
-* Implementing package origin controls to prevent dependency substitution attacks.
+- Implementing package origin controls to prevent dependency substitution attacks.
 
-* Conducting thorough vetting and risk assessments of third-party components before integrating them into the software system.
+- Conducting thorough vetting and risk assessments of third-party components before integrating them into the software system.
 
-* Maintaining a software bill of materials (SBOM) to track the provenance and dependencies of all components used in the software system.
+- Maintaining a software bill of materials (SBOM) to track the provenance and dependencies of all components used in the software system.
 
-* Establishing trusted sources and repositories for obtaining components and updates.
+- Establishing trusted sources and repositories for obtaining components and updates.
 
-* Implementing secure software delivery pipelines and continuous integration/continuous deployment (CI/CD) processes to ensure the integrity of the software supply chain.
+- Implementing secure software delivery pipelines and continuous integration/continuous deployment (CI/CD) processes to ensure the integrity of the software supply chain.
 
 By prioritizing the trustworthiness, provenance, and reputation of components, organizations can significantly reduce the risks of supply chain attacks and enhance the overall security and integrity of their software systems.
 
@@ -43,4 +43,4 @@ Sources:
 
 ## Credits
 
-A big thank-you to our friends at [Flaticon](https://www.flaticon.com) for the ```trustier``` logo.
+A big thank-you to our friends at [Flaticon](https://www.flaticon.com) for the `trustier` logo.
