@@ -17,7 +17,7 @@
 				"editor.formatOnPaste": true,
 				"git.autofetch": true,
 				"[markdown]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode",
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
 				}
 			},
 			"extensions": [
