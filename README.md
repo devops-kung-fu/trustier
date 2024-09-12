@@ -5,6 +5,15 @@
 [![](https://img.shields.io/badge/Status-ALPHA-red)](CONTRIBUTING.md)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/trustier)
 
+## Table of Contents
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Arguments](#arguments)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
 `trustier` is an application that enriches CycloneDX Software Bill of Materials with activity, provenance, and activity information from [Trusty](https://trustypkg.dev).
 
 The team at [Stacklok](https://stacklok.com) created [Trusty](https://trustypkg.dev) which they describe as a search for an open source packages to understand their trustworthiness based on activity, provenance, and more. Brought to you by the founders of projects such as Kubernetes and Sigstore.
@@ -40,6 +49,30 @@ By prioritizing the trustworthiness, provenance, and reputation of components, o
 Sources:
 
 [1] Anti-patterns for security testing - DevOps Guidance [https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/anti-patterns-for-security-testing.html](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/anti-patterns-for-security-testing.html)
+
+## Installation
+
+
+## Application Arguments
+
+| Argument         | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| `<SBOM>`  | The SBOM (Software Bill of Materials) to process. This argument is required.|
+| `--ratelimit <MS>` | The time in milliseconds to pause before making requests to https://trustypkg.dev. Defaults to 500 ms. |
+| `--output_file <FILE>` | Optional file name to write JSON output to. If not provided, output will be printed to the console. |
+
+## Example Usage
+
+```sh
+# Required sbom argument
+trustier sbom_file.json
+
+# Optional ratelimit argument
+trustier sbom_file.json --ratelimit 1000
+
+# Optional output_file argument
+trustier sbom_file.json --output_file output.json
+```
 
 ## Credits
 
