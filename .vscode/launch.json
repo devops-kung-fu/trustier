@@ -20,7 +20,7 @@
 				}
 			},
 			"args": [
-				"./test/_TESTDATA_/railsgoat.cyclonedx.json"
+				"./tests/_TESTDATA_/railsgoat.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -41,7 +41,7 @@
 				}
 			},
 			"args": [
-				"./test/_TESTDATA_/railsgoat.cyclonedx.json"
+				"./tests/_TESTDATA_/railsgoat.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -61,7 +61,7 @@
 				}
 			},
 			"args": [
-				"./test/_TESTDATA_/juiceshop.cyclonedx.json"
+				"./tests/_TESTDATA_/juiceshop.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -82,7 +82,7 @@
 			},
 			"args": [
 				"--output-file=output/trustier.json",
-				"./test/_TESTDATA_/juiceshop.cyclonedx.json"
+				"./tests/_TESTDATA_/juiceshop.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -103,7 +103,7 @@
 				}
 			},
 			"args": [
-				"./test/_TESTDATA_/juiceshop.cyclonedx.json"
+				"./tests/_TESTDATA_/juiceshop.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -123,7 +123,7 @@
 				}
 			},
 			"args": [
-				"./test/_TESTDATA_/trustier.cyclonedx.json"
+				"./tests/_TESTDATA_/trustier.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -144,7 +144,7 @@
 			},
 			"args": [
 				"--output-file=output/trustier.json",
-				"./test/_TESTDATA_/trustier.cyclonedx.json"
+				"./tests/_TESTDATA_/trustier.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -165,7 +165,7 @@
 				}
 			},
 			"args": [
-				"./test/_TESTDATA_/trustier.cyclonedx.json"
+				"./tests/_TESTDATA_/trustier.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -186,7 +186,7 @@
 			},
 			"args": [
 				"--output-file=output/trustier.json",
-				"./test/_TESTDATA_/trustier.small.cyclonedx.json"
+				"./tests/_TESTDATA_/trustier.small.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -207,7 +207,7 @@
 				}
 			},
 			"args": [
-				"./test/_TESTDATA_/trustier.small.cyclonedx.json"
+				"./tests/_TESTDATA_/trustier.small.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
 		}

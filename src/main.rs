@@ -7,9 +7,9 @@ use colored::*;
 use cyclonedx_bom::prelude::*;
 use models::TrustyResponse;
 use packageurl::PackageUrl;
+use serde_json;
 use std::{fs, str::FromStr};
 use surf;
-use serde_json;
 
 #[derive(Debug, Parser)]
 #[command(author, version, about)]
@@ -62,7 +62,7 @@ fn main() {
     }
     if let Err(err) = task::block_on(process_sbom(&bom, args.output_file, args.ratelimit)) {
         eprintln!("Error processing SBOM (process_sbom): {}", err);
-    } 
+    }
 
     println!("{}", "DONE!".green().bold());
 }
@@ -82,7 +82,6 @@ fn print_ascii_header() {
     );
 }
 
-
 async fn process_sbom(
     bom: &Bom,
     output_file: Option<String>,
@@ -94,6 +93,7 @@ async fn process_sbom(
             .iter()
             .filter_map(|component| component.purl.as_ref().map(|purl| purl.to_string()))
             .collect::<Vec<_>>()
+        //TODO: may have to dedupe
     } else {
         Vec::new()
     };
@@ -132,7 +132,7 @@ async fn process_sbom(
             }
         }
         fs::write(of_clone, json).expect("Failed to write JSON to file");
-        println!("* JSON written to file: {}", of);
+        println!("\n* JSON written to file: {}\n", of);
     } else {
         let json = serde_json::to_string_pretty(&responses).unwrap();
         println!("{}", json);
@@ -159,19 +159,18 @@ async fn fetch_purl_bodies(
                 println!("* Fetching trust information for {}:", p);
 
                 let body = surf::get(url).await?.body_string().await?;
-            
+
                 // eprintln!("* Response: {}", body);
-                
+
                 match serde_json::from_str::<TrustyResponse>(&body) {
                     Ok(resp) => {
                         //println!("Success: {:?}", resp);
                         responses.push(resp);
-                    },
+                    }
                     Err(e) => {
                         eprintln!("Failed to parse JSON: {}", e);
-                    },
+                    }
                 }
-                
 
                 task::sleep(std::time::Duration::from_millis(rate_limit_ms)).await;
             }
