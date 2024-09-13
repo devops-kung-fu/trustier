@@ -163,8 +163,9 @@ async fn fetch_purl_bodies(
                 // eprintln!("* Response: {}", body);
 
                 match serde_json::from_str::<TrustyResponse>(&body) {
-                    Ok(resp) => {
+                    Ok(mut resp) => {
                         //println!("Success: {:?}", resp);
+                        resp.purl = Some(p.to_string());
                         responses.push(resp);
                     }
                     Err(e) => {
