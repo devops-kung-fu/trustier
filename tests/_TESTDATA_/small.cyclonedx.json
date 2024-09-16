@@ -16,6 +16,11 @@
       "purl": "pkg:npm/qs@6.7.0"
     },
     {
+      "name": "notifyjs",
+      "type": "library",
+      "purl": "pkg:npm/notifyjs@3.0.0"
+    },
+    {
       "name": "pycrypto",
       "type": "library",
       "purl": "pkg:pypi/pycrypto@2.6.1"
