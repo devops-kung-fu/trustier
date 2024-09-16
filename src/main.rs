@@ -45,8 +45,8 @@ fn main() {
 
     let bom = match Bom::parse_from_json_v1_5(file_contents.as_bytes()) {
         Ok(bom) => bom,
-        Err(_) => {
-            eprintln!("Failed to parse BOM");
+        Err(e) => {
+            eprintln!("Error parsing SBOM: {}", e);
             return;
         }
     };
@@ -93,7 +93,6 @@ async fn process_sbom(
             .iter()
             .filter_map(|component| component.purl.as_ref().map(|purl| purl.to_string()))
             .collect::<Vec<_>>()
-        //TODO: may have to dedupe
     } else {
         Vec::new()
     };
@@ -108,7 +107,7 @@ async fn process_sbom(
                 .red()
         );
         println!(
-            r"* Removed {} out of {} detected Purls in the SBOM",
+            r"* Removed {} out of {} detected Purls in the SBOM. Some may have been duplicates or unsupported ecosystems.",
             original_count - collected_purls.len(),
             original_count
         );
@@ -156,7 +155,7 @@ async fn fetch_purl_bodies(
                     purl.ty()
                 );
 
-                println!("* Fetching trust information for {}:", p);
+                println!("* Fetching information for {}:", p);
 
                 let body = surf::get(url).await?.body_string().await?;
 
@@ -189,6 +188,9 @@ fn filter_purls(collected_purls: &mut Vec<String>) {
         Ok(purl) => allowed_types.contains(&purl.ty()),
         Err(_) => false,
     });
+
+    collected_purls.sort();
+    collected_purls.dedup();
 
     //if any of the collected purls contain the word cargo, replace it with crates (trustypkg.dev only supports crates, sboms contain cargo)
     for purl in collected_purls.iter_mut() {

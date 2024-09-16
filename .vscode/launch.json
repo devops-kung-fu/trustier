@@ -7,6 +7,48 @@
 		{
 			"type": "lldb",
 			"request": "launch",
+			"name": "Debug executable 'trustier' (very small SBOM), output to file",
+			"cargo": {
+				"args": [
+					"build",
+					"--bin=trustier",
+					"--package=trustier"
+				],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": [
+				"--output-file=output/trustier.json",
+				"./tests/_TESTDATA_/small.cyclonedx.json"
+			],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'trustier' (very small SBOM)",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=trustier",
+					"--package=trustier"
+				],
+				"filter": {
+					"name": "trustier",
+					"kind": "bin"
+				}
+			},
+			"args": [
+				"./tests/_TESTDATA_/small.cyclonedx.json"
+			],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
 			"name": "Debug executable 'trustier' (railsgoat)",
 			"cargo": {
 				"args": [
@@ -169,47 +211,5 @@
 			],
 			"cwd": "${workspaceFolder}"
 		},
-		{
-			"type": "lldb",
-			"request": "launch",
-			"name": "Debug executable 'trustier' (trustier small SBOM), output to file",
-			"cargo": {
-				"args": [
-					"build",
-					"--bin=trustier",
-					"--package=trustier"
-				],
-				"filter": {
-					"name": "trustier",
-					"kind": "bin"
-				}
-			},
-			"args": [
-				"--output-file=output/trustier.json",
-				"./tests/_TESTDATA_/trustier.small.cyclonedx.json"
-			],
-			"cwd": "${workspaceFolder}"
-		},
-		{
-			"type": "lldb",
-			"request": "launch",
-			"name": "Debug unit tests in executable 'trustier' (trustier)",
-			"cargo": {
-				"args": [
-					"test",
-					"--no-run",
-					"--bin=trustier",
-					"--package=trustier"
-				],
-				"filter": {
-					"name": "trustier",
-					"kind": "bin"
-				}
-			},
-			"args": [
-				"./tests/_TESTDATA_/trustier.small.cyclonedx.json"
-			],
-			"cwd": "${workspaceFolder}"
-		}
 	]
 }

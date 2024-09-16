@@ -6,6 +6,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/trustier)
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -14,6 +15,7 @@
 - [License](#license)
 
 ## Overview
+
 `trustier` is an application that enriches CycloneDX Software Bill of Materials with activity, provenance, and activity information from [Trusty](https://trustypkg.dev).
 
 The team at [Stacklok](https://stacklok.com) created [Trusty](https://trustypkg.dev) which they describe as a search for an open source packages to understand their trustworthiness based on activity, provenance, and more. Brought to you by the founders of projects such as Kubernetes and Sigstore.
@@ -52,14 +54,13 @@ Sources:
 
 ## Installation
 
-
 ## Application Arguments
 
-| Argument         | Description                                                                 |
-|------------------|-----------------------------------------------------------------------------|
-| `<SBOM>`  | The SBOM (Software Bill of Materials) to process. This argument is required.|
-| `--ratelimit <MS>` | The time in milliseconds to pause before making requests to https://trustypkg.dev. Defaults to 500 ms. |
-| `--output_file <FILE>` | Optional file name to write JSON output to. If not provided, output will be printed to the console. |
+| Argument               | Description                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ |
+| `<SBOM>`               | The SBOM (Software Bill of Materials) to process. This argument is required.                           |
+| `--ratelimit <MS>`     | The time in milliseconds to pause before making requests to https://trustypkg.dev. Defaults to 500 ms. |
+| `--output_file <FILE>` | Optional file name to write JSON output to. If not provided, output will be printed to the console.    |
 
 ## Example Usage
 
@@ -73,6 +74,14 @@ trustier sbom_file.json --ratelimit 1000
 # Optional output_file argument
 trustier sbom_file.json --output_file output.json
 ```
+
+## Troubleshooting
+
+During testing, we found there were some required fields needed in the SBOM in order to be considered valid. Ensure at minimum you have the following fields in your components:
+
+- `name`
+- `purl`
+- `type`
 
 ## Credits
 
