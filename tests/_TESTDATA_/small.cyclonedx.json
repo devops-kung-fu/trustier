@@ -2,12 +2,12 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.4.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
-  "serialNumber": "urn:uuid:e3528bf6-0024-4fbd-9223-f4760bbf54ab",
+  "serialNumber": "urn:uuid:e3528bf6-0024-4fbd-9223-f4760bbf54bb",
   "version": 1,
   "metadata": {
     "timestamp": "2024-09-02T17:26:27Z",
     "tools": [{ "vendor": "dkfm" }],
-    "component": { "bom-ref": "af63bd4c8601b7f1", "type": "file", "name": "." }
+    "component": { "bom-ref": "af63bd4c8601b7ff", "type": "file", "name": "." }
   },
   "components": [
     {
@@ -33,7 +33,8 @@
     {
       "name": "qs",
       "type": "library",
-      "purl": "pkg:npm/qs@6.7.0"
+      "purl": "pkg:npm/qs@6.7.0",
+      "description": "This duplicate package is here to test the deduplication feature."
     }
   ]
 }
