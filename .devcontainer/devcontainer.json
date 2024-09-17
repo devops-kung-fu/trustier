@@ -1,31 +1,36 @@
 {
-    "name": "echor",
-    "image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
-    "features": {
-        "ghcr.io/devcontainers-contrib/features/starship:1": {}
-    },
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "window.menuBarVisibility": "classic",
-                "workbench.activityBar.location": "top",
-                "debug.toolBarLocation": "docked",
-                "editor.formatOnSave": true,
-                "amazonQ.telemetry": false,
-                "[markdown]": {
-                    "editor.defaultFormatter": "esbenp.prettier-vscode"
-                }
-            },
-            "extensions": [
-                "github.vscode-pull-request-github",
-                "github.vscode-github-actions",
-                "oderwat.indent-rainbow",
-                "quicktype.quicktype",
-                "ahebrank.yaml2json",
-                "amazonwebservices.amazon-q-vscode",
-                "Gruntfuggly.todo-tree",
-                "esbenp.prettier-vscode"
-            ]
-        }
-    }
+	"name": "trustier",
+	"image": "mcr.microsoft.com/devcontainers/rust:1-1-bookworm",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/starship:1": {},
+		"ghcr.io/dasiths/devcontainer-features/syft:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"window.menuBarVisibility": "classic",
+				"workbench.activityBar.location": "top",
+				"debug.toolBarLocation": "docked",
+				"workbench.colorTheme": "Default Light Modern",
+				"editor.useTabStops": true,
+				"editor.formatOnSave": true,
+				"editor.formatOnPaste": true,
+				"git.autofetch": true,
+				"[markdown]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				}
+			},
+			"extensions": [
+				"GitHub.copilot",
+				"github.vscode-pull-request-github",
+				"github.vscode-github-actions",
+				"oderwat.indent-rainbow",
+				"quicktype.quicktype",
+				"ahebrank.yaml2json",
+				"Gruntfuggly.todo-tree",
+				"esbenp.prettier-vscode",
+				"BarbossHack.crates-io"
+			]
+		}
+	}
 }

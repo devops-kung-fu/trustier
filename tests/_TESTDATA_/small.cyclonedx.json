@@ -1,0 +1,45 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.4.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:e3528bf6-0024-4fbd-9223-f4760bbf54bb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-09-02T17:26:27Z",
+    "tools": [{ "vendor": "dkfm" }],
+    "component": { "bom-ref": "af63bd4c8601b7ff", "type": "file", "name": "." }
+  },
+  "components": [
+    {
+      "name": "qs",
+      "type": "library",
+      "purl": "pkg:npm/qs@6.7.0"
+    },
+    {
+      "name": "notifyjs",
+      "type": "library",
+      "purl": "pkg:npm/notifyjs@3.0.0"
+    },
+    {
+      "name": "pycrypto",
+      "type": "library",
+      "purl": "pkg:pypi/pycrypto@2.6.1"
+    },
+    {
+      "name": "pycryptopayapi",
+      "type": "library",
+      "purl": "pkg:pypi/pycryptopayapi@0.0.8"
+    },
+    {
+      "name": "body-parser",
+      "type": "library",
+      "purl": "pkg:npm/body-parser@1.19.0"
+    },
+    {
+      "name": "qs",
+      "type": "library",
+      "purl": "pkg:npm/qs@6.7.0",
+      "description": "This duplicate package is here to test the deduplication feature."
+    }
+  ]
+}

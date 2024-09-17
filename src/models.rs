@@ -4,7 +4,7 @@
 // extern crate serde_derive;
 // extern crate serde_json;
 //
-// use generated_module::TrustyResponse;
+// use models::TrustyResponse;
 //
 // fn main() {
 //     let json = r#"{"answer": 42}"#;
@@ -13,124 +13,184 @@
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct TrustyResponse {
-    id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    id: Option<String>,
 
-    status: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    status: Option<String>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     status_code: Option<serde_json::Value>,
 
-    name: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    name: Option<String>,
 
-    #[serde(rename = "type")]
-    trusty_response_type: String,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    ty: Option<String>,
 
-    version: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    version: Option<String>,
 
-    version_date: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    version_date: Option<String>,
 
-    author: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    author: Option<String>,
 
-    author_email: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    author_email: Option<String>,
 
-    package_description: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub purl: Option<String>,
 
-    repo_description: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    package_description: Option<String>,
 
-    origin: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    repo_description: Option<String>,
 
-    stargazers_count: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    origin: Option<String>,
 
-    watchers_count: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    stargazers_count: Option<i64>,
 
-    home_page: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    watchers_count: Option<i64>,
 
-    has_issues: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    home_page: Option<String>,
 
-    has_projects: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    has_issues: Option<bool>,
 
-    has_downloads: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    has_projects: Option<bool>,
 
-    forks_count: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    has_downloads: Option<serde_json::Value>,
 
-    archived: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    forks_count: Option<i64>,
 
-    is_deprecated: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    archived: Option<bool>,
 
-    disabled: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    is_deprecated: Option<bool>,
 
-    open_issues_count: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    disabled: Option<bool>,
 
-    visibility: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    open_issues_count: Option<i64>,
 
-    default_branch: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    visibility: Option<String>,
 
-    repository_id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    default_branch: Option<String>,
 
-    repository_name: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    repository_id: Option<String>,
 
-    contributor_count: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    repository_name: Option<String>,
 
-    public_repos: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    contributor_count: Option<i64>,
 
-    public_gists: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    public_repos: Option<i64>,
 
-    followers: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    public_gists: Option<i64>,
 
-    following: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    followers: Option<i64>,
 
-    owner: Owner,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    following: Option<i64>,
 
-    contributors: Vec<Owner>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    owner: Option<Owner>,
 
-    last_update: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    contributors: Option<Vec<Owner>>,
 
-    scores: Scores,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    last_update: Option<String>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
+    scores: Option<Scores>,
+
+    #[serde(skip_serializing_if = "Option::is_none")]
     malicious: Option<serde_json::Value>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Owner {
-    id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    id: Option<String>,
 
-    author: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    author: Option<String>,
 
-    author_email: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    author_email: Option<String>,
 
-    login: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    login: Option<String>,
 
-    avatar_url: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    avatar_url: Option<String>,
 
-    gravatar_id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    gravatar_id: Option<String>,
 
-    url: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    url: Option<String>,
 
-    html_url: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    html_url: Option<String>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     company: Option<String>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     blog: Option<String>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     location: Option<String>,
 
-    email: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    email: Option<String>,
 
-    hireable: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    hireable: Option<bool>,
 
-    twitter_username: Option<serde_json::Value>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    twitter_username: Option<String>,
 
-    public_repos: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    public_repos: Option<i64>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     public_gists: Option<serde_json::Value>,
 
-    followers: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    followers: Option<i64>,
 
-    following: i64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    following: Option<i64>,
 
-    scores: Scores,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    scores: Option<Scores>,
 }
 
-#[derive(Serialize, Deserialize)]
-pub struct Scores {}
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Scores {
+    // Add fields here if needed, all wrapped in Option<T>
+}
