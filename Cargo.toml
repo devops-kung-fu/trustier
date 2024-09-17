@@ -15,7 +15,7 @@ colored = "2.1.0"
 clap-stdin = "0.5.1"
 
 [dev-dependencies]
-anyhow = "1.0.79"
-assert_cmd = "2.0.13"
-predicates = "3.0.4"
-pretty_assertions = "1.4.0"
+anyhow = "1.0.89"
+assert_cmd = "2.0.16"
+predicates = "3.1.2"
+pretty_assertions = "1.4.1"
