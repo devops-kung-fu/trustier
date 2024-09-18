@@ -57,6 +57,11 @@ Sources:
 
 ## Installation
 
+Binaries for Mac, Linux, and Windows Platforms are available from the [Releases](https://github.com/devops-kung-fu/trustier/releases) section of this repsitory. Download, unpack, and use!
+
+__NOTE:__ The application has not been tested on all platforms and architectures. If you experience any issues, please report them [here](
+https://github.com/devops-kung-fu/trustier/issues)
+
 ## Application Arguments
 
 | Argument               | Description                                                                                                 |
