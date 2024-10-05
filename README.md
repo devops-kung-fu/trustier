@@ -23,7 +23,7 @@ The team at [Stacklok](https://stacklok.com) created [Trusty](https://trustypkg.
 
 ![](img/console.png)
 
-## The importance of undetstanding supply chain attacks
+## The importance of understanding supply chain attacks
 
 Supply chain attacks are crucial to address because they can compromise the integrity and security of software systems, even if an organization's proprietary code is secure. These attacks exploit vulnerabilities in the software supply chain, which includes third-party libraries, development tools, and other components used to build, test, deploy, and operate systems. [1]
 
