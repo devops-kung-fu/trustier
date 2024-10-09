@@ -66,17 +66,21 @@ fn main() {
     let bom = match Bom::parse_from_json_v1_5(file_contents) {
         Ok(bom) => bom,
         Err(e) => {
-            eprintln!("Error parsing SBOM: {}", e);
+            eprintln!("* Error parsing SBOM! \n\n{}", e);
             return;
         }
     };
 
-    if args.strict && !bom.validate().passed() {
-        eprintln!("* Provided input is not a valid SBOM");
-        return;
+    if args.strict {
+        conditional_println!(args.sbom.is_file(), "* strict SBOM checking enabled...");
+        if !bom.validate().passed() {
+            eprintln!("* Provided input is not a valid SBOM");
+            return;
+        } else {
+            conditional_println!(args.sbom.is_file(), "* SBOM is valid");
+        }
     }
 
-    conditional_println!(args.sbom.is_file(), "* SBOM is valid");
     if let Some(serial_number) = &bom.serial_number {
         conditional_println!(
             args.sbom.is_file(),
@@ -145,7 +149,8 @@ async fn process_sbom(
             collected_purls.len()
         );
     } else {
-        conditional_println!(args.sbom.is_file(), "* Nothing to do...\n")
+        conditional_println!(args.sbom.is_file(), "* Nothing to do...\n");
+        return Ok(());
     }
 
     let responses = fetch_purl_bodies(&collected_purls, args.ratelimit).await?;
@@ -160,7 +165,7 @@ async fn process_sbom(
             }
         }
         fs::write(of_clone, json).expect("Failed to write JSON to file");
-        conditional_println!(args.sbom.is_file(), "\n* JSON written to file: {}\n", of);
+        conditional_println!(args.sbom.is_file(), "* JSON written to file: {}\n", of);
     } else {
         let json = serde_json::to_string_pretty(&responses).unwrap();
         println!("{}", json);
