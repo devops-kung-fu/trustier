@@ -33,6 +33,10 @@ struct Args {
     //Optional file name to write json output to
     #[arg(short, long, required = false)]
     output_file: Option<String>,
+
+    //Optional flag to enable strict SBOM validation
+    #[arg(short, long, default_value_t = false)]
+    strict: bool,
 }
 
 fn main() {
@@ -67,7 +71,7 @@ fn main() {
         }
     };
 
-    if !bom.validate().passed() {
+    if args.strict && !bom.validate().passed() {
         eprintln!("* Provided input is not a valid SBOM");
         return;
     }
