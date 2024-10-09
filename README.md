@@ -8,11 +8,13 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [The importance of undetstanding supply chain attacks](#the-importance-of-undetstanding-supply-chain-attacks)
+- [The importance of understanding supply chain attacks](#the-importance-of-understanding-supply-chain-attacks)
 - [Installation](#installation)
-- [Example Usage](#example-usage)
 - [Application Arguments](#application-arguments)
+- [Example Usage](#example-usage)
 - [Troubleshooting](#troubleshooting)
+    - [SBOM Validation](#sbom-validation)
+    - [Supported CycloneDX versions](#supported-cyclonedx-versions)
 - [Credits](#credits)
 
 ## Overview
@@ -94,11 +96,22 @@ cat sbom_file.json | trustier -
 
 ## Troubleshooting
 
-During testing, we found there were some required fields needed in the SBOM in order to be considered valid. Ensure at minimum you have the following fields in your components:
+### SBOM Validation
+
+During testing, we found there were some required fields needed in the SBOM in order to be considered valid. We
+utilized the validation logic provided in the CycloneDX dependencies we use in `trustier`. In version 0.1.1, we
+disabled validation by default, but if you wish to utilize strict validation then utilize the `--strict` flag.
+
+Ensure at minimum you have the following fields in your components if you are using strict validation:
 
 - `name`
 - `purl`
 - `type`
+
+### Supported CycloneDX versions
+
+`trustier` relies on [CycloneDX](https://github.com/CycloneDX/cyclonedx-rust-cargo/blob/main/cyclonedx-bom/README.md) to
+load and work with SBOMs. This provides a limitation of only supporting versions 1.3, 1.4, and 1.5 of the CycloneDX specification at this time.
 
 **NOTE:** `trustier` does not support SPDX formatted SBOMS at this time.
 
