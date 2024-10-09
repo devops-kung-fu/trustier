@@ -44,12 +44,7 @@ fn main() {
 
     if args.sbom.is_file() {
         print_ascii_header();
-    }
-
-    if args.sbom.is_file() {
-        conditional_println!(args.sbom.is_file(), "* Reading SBOM from file...");
-    } else {
-        conditional_println!(args.sbom.is_file(), "* Reading SBOM from stdin...");
+        conditional_println!(true, "* Reading SBOM from file...");
     }
 
     let file_contents = match args.sbom.clone().into_reader() {
