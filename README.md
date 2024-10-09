@@ -8,11 +8,13 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [The importance of undetstanding supply chain attacks](#the-importance-of-undetstanding-supply-chain-attacks)
+- [The importance of understanding supply chain attacks](#the-importance-of-understanding-supply-chain-attacks)
 - [Installation](#installation)
-- [Example Usage](#example-usage)
 - [Application Arguments](#application-arguments)
+- [Example Usage](#example-usage)
 - [Troubleshooting](#troubleshooting)
+    - [SBOM Validation](#sbom-validation)
+    - [Supported CycloneDX versions](#supported-cyclonedx-versions)
 - [Credits](#credits)
 
 ## Overview
@@ -59,16 +61,16 @@ Sources:
 
 Binaries for Mac, Linux, and Windows Platforms are available from the [Releases](https://github.com/devops-kung-fu/trustier/releases) section of this repsitory. Download, unpack, and use!
 
-__NOTE:__ The application has not been tested on all platforms and architectures. If you experience any issues, please report them [here](
-https://github.com/devops-kung-fu/trustier/issues)
+**NOTE:** The application has not been tested on all platforms and architectures. If you experience any issues, please report them [here](https://github.com/devops-kung-fu/trustier/issues)
 
 ## Application Arguments
 
-| Argument               | Description                                                                                                 |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `<SBOM>`               | The SBOM (Software Bill of Materials) to process. This argument is required.                                |
-| `--ratelimit <MS>`     | Optional time in milliseconds to pause before making requests to https://trustypkg.dev. Defaults to 500 ms. |
-| `--output_file <FILE>` | Optional file name to write JSON output to. If not provided, output will be printed to the console.         |
+| Argument               | Description                                                                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `<SBOM>`               | The SBOM (Software Bill of Materials) to process. This argument is required.                                                         |
+| `--ratelimit <MS>`     | Optional time in milliseconds to pause before making requests to https://trustypkg.dev. Defaults to 500 ms.                          |
+| `--output_file <FILE>` | Optional file name to write JSON output to. If not provided, output will be printed to the console.                                  |
+| `--strict`             | If set, will perform a strict SBOM validation, otherwise `trustier` will attempt to process the SBOM. Optional and defaults to false |
 
 ## Example Usage
 
@@ -82,6 +84,9 @@ trustier sbom_file.json --ratelimit 1000
 # Optional output_file argument
 trustier sbom_file.json --output_file output.json
 
+# Perform strict SBOM validation
+trustier sbom_file.json --strict --output_file output.json
+
 # Takes an SBOM from STDIN and outputs JSON without any console decoration
 cat sbom_file.json | trustier -
 
@@ -91,13 +96,24 @@ cat sbom_file.json | trustier -
 
 ## Troubleshooting
 
-During testing, we found there were some required fields needed in the SBOM in order to be considered valid. Ensure at minimum you have the following fields in your components:
+### SBOM Validation
+
+During testing, we found there were some required fields needed in the SBOM in order to be considered valid. We
+utilized the validation logic provided in the CycloneDX dependencies we use in `trustier`. In version 0.1.1, we
+disabled validation by default, but if you wish to utilize strict validation then utilize the `--strict` flag.
+
+Ensure at minimum you have the following fields in your components if you are using strict validation:
 
 - `name`
 - `purl`
 - `type`
 
-__NOTE:__ `trustier` does not support SPDX formatted SBOMS at this time.
+### Supported CycloneDX versions
+
+`trustier` relies on [CycloneDX](https://github.com/CycloneDX/cyclonedx-rust-cargo/blob/main/cyclonedx-bom/README.md) to
+load and work with SBOMs. This provides a limitation of only supporting versions 1.3, 1.4, and 1.5 of the CycloneDX specification at this time.
+
+**NOTE:** `trustier` does not support SPDX formatted SBOMS at this time.
 
 ## Credits
 

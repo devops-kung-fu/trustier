@@ -90,7 +90,7 @@
 		{
 			"type": "lldb",
 			"request": "launch",
-			"name": "Debug executable 'trustier' (juiceshop)",
+			"name": "Debug executable 'trustier' --strict (juiceshop)",
 			"cargo": {
 				"args": [
 					"build",
@@ -103,6 +103,7 @@
 				}
 			},
 			"args": [
+				"--strict",
 				"./tests/_TESTDATA_/juiceshop.cyclonedx.json"
 			],
 			"cwd": "${workspaceFolder}"
