@@ -1,6 +1,7 @@
 <div style="background-color: #FFF8DC; border: 1px solid #E6B800; color: #7C5A00; padding: 16px; border-radius: 6px; margin-bottom: 20px;">
 <strong>⚠️ Warning:</strong> Stacklok has chosen to retire Insights (previously known as Trusty) on <strong>June 8, 2025</strong>. As a result, this codebase will no longer function after that date.
 </div>
+<br>
 
 ![trustier](img/trustier128x128.png)
 
