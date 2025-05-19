@@ -1,3 +1,7 @@
+<div style="background-color: #FFF8DC; border: 1px solid #E6B800; color: #7C5A00; padding: 16px; border-radius: 6px; margin-bottom: 20px;">
+<strong>⚠️ Warning:</strong> Stacklok has chosen to retire Insights (previously known as Trusty) on <strong>June 8, 2025</strong>. As a result, this codebase will no longer function after that date.
+</div>
+
 ![trustier](img/trustier128x128.png)
 
 # trustier
@@ -59,8 +63,7 @@ Sources:
 
 Binaries for Mac, Linux, and Windows Platforms are available from the [Releases](https://github.com/devops-kung-fu/trustier/releases) section of this repsitory. Download, unpack, and use!
 
-__NOTE:__ The application has not been tested on all platforms and architectures. If you experience any issues, please report them [here](
-https://github.com/devops-kung-fu/trustier/issues)
+**NOTE:** The application has not been tested on all platforms and architectures. If you experience any issues, please report them [here](https://github.com/devops-kung-fu/trustier/issues)
 
 ## Application Arguments
 
@@ -97,7 +100,7 @@ During testing, we found there were some required fields needed in the SBOM in o
 - `purl`
 - `type`
 
-__NOTE:__ `trustier` does not support SPDX formatted SBOMS at this time.
+**NOTE:** `trustier` does not support SPDX formatted SBOMS at this time.
 
 ## Credits
 
